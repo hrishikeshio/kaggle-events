@@ -1,5 +1,6 @@
 import csv
 train=[]
+test=[]
 with open("raw/train.csv","rb") as f:
 	fr=csv.reader(f)
 	fr.next()
@@ -17,4 +18,16 @@ print users[3197468391]
 with open("processed/traincat.csv","wb") as f:
 	fw=csv.writer(f)
 	for i in train:
+		fw.writerow(i+users[int(i[0])])
+
+with open("raw/test.csv","rb") as f:
+	fr=csv.reader(f)
+	fr.next()
+	for i in fr:
+		test.append(i)
+print test[:5]
+
+with open("processed/testcat.csv","wb") as f:
+	fw=csv.writer(f)
+	for i in test:
 		fw.writerow(i+users[int(i[0])])

@@ -1,10 +1,10 @@
 import csv
 from operator import itemgetter
 result=[]
-with open("../out.txt","rb") as f:
+with open("../outcat2.csv","rb") as f:
 	fr=csv.reader(f)
 	for i in fr:
-		result.append([5-float(i[0])])
+		result.append([100-float(i[0])])
 print result[:5]
 test=[]
 with open("../raw/test.csv",'rb') as f:
@@ -35,6 +35,6 @@ for i in test2:
 submission.append([temp]+[temp2])
 print submission[:5]
 
-with open("submit.csv","wb") as f:
+with open("submitoutcat2.csv","wb") as f:
 	fw=csv.writer(f)
 	fw.writerows(submission)

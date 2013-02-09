@@ -4,7 +4,7 @@ result=[]
 with open("../outcat3.csv","rb") as f:
 	fr=csv.reader(f)
 	for i in fr:
-		result.append([100-float(i[0])])
+		result.append([5-float(i[0])])
 print result[:5]
 test=[]
 with open("../raw/test.csv",'rb') as f:

@@ -38,12 +38,14 @@ valid$birthyear[valid$birthyear=="None"]<-1993
 valid$birthyear<-2013-as.numeric(as.character(valid$birthyear))
 valid$timezone[is.na(valid$timezone)]<-"420"
 valid$timezone<-as.numeric(factor(valid$timezone,levels=tzs))
-
+events<-read.csv("raw/events3.csv")
+ntrain<-merge(train,events,by.x="event",by.y="event_id", all.x=TRUE, all.y=FALSE)
+nvalid<-merge(valid,events,by.x="event",by.y="event_id", all.x=TRUE, all.y=FALSE)
 
 write.table(train,"traincat.formatted.csv",row.names=FALSE,col.names=FALSE,sep=",")
 write.table(valid,"validcat.formatted.csv",row.names=FALSE,col.names=FALSE,sep=",")
 #glm<-lm(score~., data=train)
 #prediction <- predict(glm, newdata=valid)
 #write.table(prediction,"glm.csv",row.names=FALSE)
-valid$score<-NULL
+#valid$score<-NULL
 #rf<-randomForest(score~.,data=train,xtest=valid,na.action=na.omit, importance=TRUE,proximity=TRUE)

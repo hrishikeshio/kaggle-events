@@ -1,7 +1,7 @@
 import csv
 from operator import itemgetter
 result=[]
-with open("../outcat3.csv","rb") as f:
+with open("../sub7.csv","rb") as f:
 	fr=csv.reader(f)
 	for i in fr:
 		result.append([5-float(i[0])])
@@ -35,6 +35,6 @@ for i in test2:
 submission.append([temp]+[temp2])
 print submission[:5]
 
-with open("submitoutcat3.csv","wb") as f:
+with open("submitoutcat6.csv","wb") as f:
 	fw=csv.writer(f)
 	fw.writerows(submission)

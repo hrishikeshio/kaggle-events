@@ -7,11 +7,12 @@ with open("../sub7.csv","rb") as f:
 		result.append([5-float(i[0])])
 print result[:5]
 test=[]
-with open("../raw/test.csv",'rb') as f:
+#with open("../raw/test.csv",'rb') as f:
+with open("../nvalidcat.formatted.csv",'rb') as f:
 	fr=csv.reader(f)
 	fr.next()
 	for i in fr:
-		test.append([int(i[0])]+[int(i[1])])
+		test.append([int(i[1])]+[int(i[0])])
 print test[:5]
 test2=[]
 for i,j in zip(test,result):
@@ -35,6 +36,6 @@ for i in test2:
 submission.append([temp]+[temp2])
 print submission[:5]
 
-with open("submitoutcat6.csv","wb") as f:
+with open("submitoutcat9.csv","wb") as f:
 	fw=csv.writer(f)
 	fw.writerows(submission)
